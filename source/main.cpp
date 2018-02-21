@@ -35,7 +35,7 @@ int main() {
 
 	consoleInit(GFX_TOP, NULL);
 
-	// Create a texture for the fidget spinner
+	// Load Textures
     sf2d_texture* D0 = sfil_load_PNG_buffer(D0_png, SF2D_PLACE_RAM);
     sf2d_texture* D1 = sfil_load_PNG_buffer(D1_png, SF2D_PLACE_RAM);
     sf2d_texture* D2 = sfil_load_PNG_buffer(D2_png, SF2D_PLACE_RAM);
@@ -51,7 +51,6 @@ int main() {
     sf2d_texture* number7 = sfil_load_PNG_buffer(number7_png, SF2D_PLACE_RAM);
     sf2d_texture* number8 = sfil_load_PNG_buffer(number8_png, SF2D_PLACE_RAM);
     sf2d_texture* number9 = sfil_load_PNG_buffer(number9_png, SF2D_PLACE_RAM);
-	// Create a texture for the second meme
     
     bool display=true;
     
@@ -71,9 +70,9 @@ int main() {
 //    int keyComboAnswer [level]={};
 //    int keyCombo [level]={};
 
-	// Position of the spinner on the screen
-    int posx = (320 / 2)-100; //- (fidgetSpinner->width   / 2);
-    int posy = (240 / 2)-96; //- (fidgetSpinner->height  / 2);
+        //Center
+    int posx = (320 / 2)-100;
+    int posy = (240 / 2)-96;
 
 	// Used for what keys were pressed down this frame
 	u32 keyDown;
@@ -147,7 +146,7 @@ int main() {
             keyUp = hidKeysUp();
             
             if (keyDown & KEY_START) {
-                // Get us the fuck out of here please
+                // Exit
                 break;
             }
             if (pressNum<level+1){
@@ -232,16 +231,7 @@ int main() {
             pressNum=0;
         }
         sf2d_end_frame();
-
-
-
-
-		// Draw whatever the fuck that is on the top screen (no 3D)
-		//sf2d_start_frame(GFX_TOP, GFX_LEFT);
-		//sf2d_draw_texture(topScreen, 0, 0);
-		//sf2d_end_frame();
-
-		// Draw the finna spidget on the bottom screen
+        
         sf2d_swapbuffers();
 
 	}
