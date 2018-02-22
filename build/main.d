@@ -89,16 +89,9 @@ main.o: /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/source/main.cpp \
  /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D2_png.h \
  /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D3_png.h \
  /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D4_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number0_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number1_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number2_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number3_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number4_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number5_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number6_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number7_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number8_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number9_png.h
+ /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D5_png.h \
+ /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/start_png.h \
+ /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/stop_png.h
 
 /usr/local/devkitPro/libctru/include/3ds.h:
 
@@ -280,22 +273,8 @@ main.o: /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/source/main.cpp \
 
 /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D4_png.h:
 
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number0_png.h:
+/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D5_png.h:
 
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number1_png.h:
+/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/start_png.h:
 
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number2_png.h:
-
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number3_png.h:
-
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number4_png.h:
-
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number5_png.h:
-
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number6_png.h:
-
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number7_png.h:
-
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number8_png.h:
-
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/number9_png.h:
+/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/stop_png.h:

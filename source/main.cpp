@@ -14,16 +14,9 @@
 #include "D2_png.h"
 #include "D3_png.h"
 #include "D4_png.h"
-#include "number0_png.h"
-#include "number1_png.h"
-#include "number2_png.h"
-#include "number3_png.h"
-#include "number4_png.h"
-#include "number5_png.h"
-#include "number6_png.h"
-#include "number7_png.h"
-#include "number8_png.h"
-#include "number9_png.h"
+#include "D5_png.h"
+#include "start_png.h"
+#include "stop_png.h"
 
 using namespace std;
 
@@ -41,28 +34,21 @@ int main() {
     sf2d_texture* D2 = sfil_load_PNG_buffer(D2_png, SF2D_PLACE_RAM);
     sf2d_texture* D3 = sfil_load_PNG_buffer(D3_png, SF2D_PLACE_RAM);
     sf2d_texture* D4 = sfil_load_PNG_buffer(D4_png, SF2D_PLACE_RAM);
-    sf2d_texture* number0 = sfil_load_PNG_buffer(number0_png, SF2D_PLACE_RAM);
-    sf2d_texture* number1 = sfil_load_PNG_buffer(number1_png, SF2D_PLACE_RAM);
-    sf2d_texture* number2 = sfil_load_PNG_buffer(number2_png, SF2D_PLACE_RAM);
-    sf2d_texture* number3 = sfil_load_PNG_buffer(number3_png, SF2D_PLACE_RAM);
-    sf2d_texture* number4 = sfil_load_PNG_buffer(number4_png, SF2D_PLACE_RAM);
-    sf2d_texture* number5 = sfil_load_PNG_buffer(number5_png, SF2D_PLACE_RAM);
-    sf2d_texture* number6 = sfil_load_PNG_buffer(number6_png, SF2D_PLACE_RAM);
-    sf2d_texture* number7 = sfil_load_PNG_buffer(number7_png, SF2D_PLACE_RAM);
-    sf2d_texture* number8 = sfil_load_PNG_buffer(number8_png, SF2D_PLACE_RAM);
-    sf2d_texture* number9 = sfil_load_PNG_buffer(number9_png, SF2D_PLACE_RAM);
+    sf2d_texture* D5 = sfil_load_PNG_buffer(D5_png, SF2D_PLACE_RAM);
+    sf2d_texture* start = sfil_load_PNG_buffer(start_png, SF2D_PLACE_RAM);
+    sf2d_texture* stop = sfil_load_PNG_buffer(stop_png, SF2D_PLACE_RAM);
     
     bool display=true;
     
     int level=3;
     int key=0;
-    int delay=10;
-    int timeWasted=0;
     int ran=0;
     int pressNum=0;
     bool redraw=false;
     bool neww=true;
     bool correct=true;
+    bool finishedCheck=false;
+    bool debug=false;
     
     vector<int> keyCombo,keyComboAnswer;
     default_random_engine engine;
@@ -76,8 +62,8 @@ int main() {
 
 	// Used for what keys were pressed down this frame
 	u32 keyDown;
-	// Used for what keys were let go this frame
-	u32 keyUp;
+    // Used for what keys were held down this frame
+    u32 keyHeld;
 
 
 
@@ -93,46 +79,82 @@ int main() {
         if(neww){
         if (ran<level){
             if (display) {
-                //if(timeWasted==delay){
-                printf("%d\n",ran);
-                printf("%d\n",level);
-                    svcSleepThread(1000000000);
+                if(debug){
+                printf("Ran: %d\n",ran);
+                printf("Level: %d\n",level);
+                }
                     key=distributor(engine);
+                if(debug){
                     printf("Key: %d\n",key);
+                }
                     if (key==1) {
-                        keyComboAnswer[ran]=1;
+                        keyComboAnswer.push_back(1);
+                        sf2d_draw_texture(D0, posx, posy);
+                        sf2d_draw_texture(stop, 8, 8);
+                        svcSleepThread(500000000);
+                        sf2d_end_frame();
+                        sf2d_swapbuffers();
+                        sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
                         sf2d_draw_texture(D1, posx, posy);
+                        sf2d_draw_texture(stop, 8, 8);
+                        svcSleepThread(1000000000);
                     } else if (key==2){
-                        keyComboAnswer[ran]=2;
+                        keyComboAnswer.push_back(2);
+                        sf2d_draw_texture(D0, posx, posy);
+                        sf2d_draw_texture(stop, 8, 8);
+                        svcSleepThread(500000000);
+                        sf2d_end_frame();
+                        sf2d_swapbuffers();
+                        sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
                         sf2d_draw_texture(D2, posx, posy);
+                        sf2d_draw_texture(stop, 8, 8);
+                        svcSleepThread(1000000000);
                     } else if (key==3){
-                        keyComboAnswer[ran]=3;
+                        keyComboAnswer.push_back(3);
+                        sf2d_draw_texture(D0, posx, posy);
+                        sf2d_draw_texture(stop, 8, 8);
+                        svcSleepThread(500000000);
+                        sf2d_end_frame();
+                        sf2d_swapbuffers();
+                        sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
                         sf2d_draw_texture(D3, posx, posy);
+                        sf2d_draw_texture(stop, 8, 8);
+                        svcSleepThread(1000000000);
                     } else if (key==4){
-                        keyComboAnswer[ran]=4;
+                        keyComboAnswer.push_back(4);
+                        sf2d_draw_texture(D0, posx, posy);
+                        sf2d_draw_texture(stop, 8, 8);
+                        svcSleepThread(500000000);
+                        sf2d_end_frame();
+                        sf2d_swapbuffers();
+                        sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
                         sf2d_draw_texture(D4, posx, posy);
+                        sf2d_draw_texture(stop, 8, 8);
+                        svcSleepThread(1000000000);
                     }
                     ran++;
-                    timeWasted=0;
                     redraw=true;
-//                }
-//                else{
-//                    //printf("Time Wasted:%d",timeWasted);
-//                    timeWasted++;
-//                }
             }
         }
         else{
             display=false;
-          //  sf2d_swapbuffers();
             if (redraw){
                 sf2d_draw_texture(D0, posx, posy);
+                sf2d_draw_texture(stop, 8, 8);
+                svcSleepThread(500000000);
+                sf2d_end_frame();
+                sf2d_swapbuffers();
+                sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
                 redraw=false;
             }
-            printf("Blank");
+            
+            if(debug){
+            printf("Blank\n");
+            }
             neww=false;
         }
         }
+        
         
         
         if (display==false) {
@@ -142,76 +164,118 @@ int main() {
             // keyDown stores which keys were just pressed as of this frame
             keyDown = hidKeysDown();
             
-            // keyUp stores which keys were just released this frame
-            keyUp = hidKeysUp();
+            // keyHeld stores which keys were held this frame
+            keyHeld = hidKeysHeld();
             
             if (keyDown & KEY_START) {
                 // Exit
                 break;
             }
-            if (pressNum<level+1){
-                bool incorrect=true;
+            if (pressNum<level){
                 //printf("Key Combo Answer: %d\n",keyComboAnswer[pressNum]);
                 if (keyDown) {
-                  //  printf("%d\n",pressNum);
-                   // printf("KEYDOWN\n%d\n",pressNum);
-                 //   printf("%d\n",keyComboAnswer[pressNum]);
-                   // printf("%d\n",keyComboAnswer);
+                    //  printf("%d\n",pressNum);
+                    // printf("KEYDOWN\n%d\n",pressNum);
+                    //   printf("%d\n",keyComboAnswer[pressNum]);
+                    // printf("%d\n",keyComboAnswer);
                     if (keyDown&KEY_DLEFT) {
-                        keyCombo[pressNum]=1;
+                        keyCombo.push_back(1);
                         sf2d_draw_texture(D1, posx, posy);
+                        sf2d_draw_texture(start, 8, 8);
                         pressNum++;
-                      //  printf("%d\n",keyCombo);
+                        //  printf("%d\n",keyCombo);
                         //printf("%d\n",keyComboAnswer);
-                        }
+                    }
                     else if (keyDown&KEY_DUP) {
-                        keyCombo[pressNum]=2;
+                        keyCombo.push_back(2);
                         sf2d_draw_texture(D2, posx, posy);
+                        sf2d_draw_texture(start, 8, 8);
                         pressNum++;
-                      //  printf("%d\n",keyCombo);
+                        //  printf("%d\n",keyCombo);
                         //printf("%d\n",keyComboAnswer);
                     }
                     else if (keyDown&KEY_DRIGHT) {
-                        keyCombo[pressNum]=3;
+                        keyCombo.push_back(3);
                         sf2d_draw_texture(D3, posx, posy);
+                        sf2d_draw_texture(start, 8, 8);
                         pressNum++;
-                      //  printf("%d\n",keyCombo);
-                    //    printf("%d\n",keyComboAnswer);
+                        //  printf("%d\n",keyCombo);
+                        //    printf("%d\n",keyComboAnswer);
                     }
                     else if (keyDown&KEY_DDOWN) {
-                        keyCombo[pressNum]=4;
+                        keyCombo.push_back(4);
                         sf2d_draw_texture(D4, posx, posy);
+                        sf2d_draw_texture(start, 8, 8);
                         pressNum++;
                         //printf("%d\n",keyCombo);
                         //printf("%d\n",keyComboAnswer);
                     }
                 }
-            }
-            else{
-               // printf("%d\n",keyComboAnswer.size());
-               // printf("%d\n",keyCombo.size());
-                for (int j=0; j<keyComboAnswer.size(); j++) {
-                  //  printf("%d\n",keyCombo[j]);
-                   // printf("%d\n",keyComboAnswer[j]);
-                    //printf("\n");
-                }
-                //printf("\n");
-                
-                if (keyCombo.size()==keyComboAnswer.size()) {
-                    for (int i=0; i<level+1; i++) {
-                        if (keyCombo[i]==keyComboAnswer[i]) {
-                            //printf("match\n");
-                            correct=true;
-                        }
-                        else{
-                            correct=false;
-                            break;
-                        }
+                else if (keyHeld) {
+                    if (keyHeld&KEY_DLEFT) {
+                        sf2d_draw_texture(D1, posx, posy);
+                        sf2d_draw_texture(start, 8, 8);
+                    }
+                    else if (keyHeld&KEY_DUP) {
+                        sf2d_draw_texture(D2, posx, posy);
+                        sf2d_draw_texture(start, 8, 8);
+                    }
+                    else if (keyHeld&KEY_DRIGHT) {
+                        sf2d_draw_texture(D3, posx, posy);
+                        sf2d_draw_texture(start, 8, 8);
+                    }
+                    else if (keyHeld&KEY_DDOWN) {
+                        sf2d_draw_texture(D4, posx, posy);
+                        sf2d_draw_texture(start, 8, 8);
                     }
                 }
                 else{
-                    //printf("no match size\n");
+                    
+                    sf2d_draw_texture(D0, posx, posy);
+                    sf2d_draw_texture(start, 8, 8);
+                    svcSleepThread(500000);
+                }
+            }
+            else{
+                
+                if (keyCombo.size()==keyComboAnswer.size()) {
+                    for (int i=0; i<level; i++) {
+                        
+                        if(debug){
+                        printf("Answer: %d\n",keyComboAnswer.at(i));
+                        printf("User  : %d\n",keyCombo.at(i));
+                        }
+                        if (keyCombo.at(i)==keyComboAnswer.at(i)) {
+                            
+                            if(debug){
+                            printf("Yup\n");
+                            }
+                            correct=true;
+                        }
+                        else{
+                            if(debug){
+                            printf("Nope\n");
+                            }
+                            correct=false;
+                        }
+                        
+                        if(debug){
+                        printf("NextFor\n");
+                        }
+                    }
+                    
+                    if(debug){
+                    printf("Checked\n");
+                    }
+                    finishedCheck=true;
+                    
+                }
+                else{
+                    if(debug){
+                    printf("no match size\n");
+                    }
                     correct=false;
+                    finishedCheck=true;
                 }
                 
                 
@@ -219,16 +283,57 @@ int main() {
         }
         
         
-        if (correct) {
-            printf("correct\n");
-            level++;
-            display=true;
-            ran=0;
-            keyCombo.clear();
-            keyComboAnswer.clear();
-            correct=false;
-            neww=true;
-            pressNum=0;
+        if (finishedCheck) {
+            if(debug){
+            printf("CheckStart\n");
+            }
+            if (correct) {
+                if(debug){
+                printf("correct\n");
+                }level++;
+                display=true;
+                ran=0;
+                if(debug){
+                for (int t=0; t<keyCombo.size(); t++) {
+                    printf("User:   %d\n",keyCombo.at(t));
+                }
+                for (int u=0; u<keyComboAnswer.size(); u++) {
+                    printf("Answer: %d\n",keyComboAnswer.at(u));
+                }
+                printf("\n");
+                }
+                keyCombo.clear();
+                keyComboAnswer.clear();
+                if(debug){
+                for (int t=0; t<keyCombo.size(); t++) {
+                    printf("User:   %d\n",keyCombo.at(t));
+                }
+                for (int u=0; u<keyComboAnswer.size(); u++) {
+                    printf("Answer: %d\n",keyComboAnswer.at(u));
+                }
+                }
+                correct=false;
+                neww=true;
+                pressNum=0;
+                finishedCheck=false;
+            }
+            else{
+                sf2d_end_frame();
+                sf2d_swapbuffers();
+                sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
+                sf2d_draw_texture(D5, posx, posy);
+                svcSleepThread(1000000000);
+                if(debug){
+                printf("incorrect\n");
+                for (int t=0; t<keyCombo.size(); t++) {
+                    printf("User:   %d\n",keyCombo.at(t));
+                }
+                for (int u=0; u<keyComboAnswer.size(); u++) {
+                    printf("Answer: %d\n",keyComboAnswer.at(u));
+                }
+                }
+                break;
+            }
         }
         sf2d_end_frame();
         
@@ -241,16 +346,9 @@ int main() {
     sf2d_free_texture(D2);
     sf2d_free_texture(D3);
     sf2d_free_texture(D4);
-    sf2d_free_texture(number0);
-    sf2d_free_texture(number1);
-    sf2d_free_texture(number2);
-    sf2d_free_texture(number3);
-    sf2d_free_texture(number4);
-    sf2d_free_texture(number5);
-    sf2d_free_texture(number6);
-    sf2d_free_texture(number7);
-    sf2d_free_texture(number8);
-    sf2d_free_texture(number9);
+    sf2d_free_texture(D5);
+    sf2d_free_texture(start);
+    sf2d_free_texture(stop);
 	sf2d_fini();
 
 	return 0;
