@@ -50,6 +50,9 @@ int main() {
     bool finishedCheck=false;
     bool debug=false;
     
+    srand(osGetTime());
+    
+    
     vector<int> keyCombo,keyComboAnswer;
     default_random_engine engine;
     uniform_int_distribution<int> distributor(1,4);
@@ -83,62 +86,97 @@ int main() {
                 printf("Ran: %d\n",ran);
                 printf("Level: %d\n",level);
                 }
-                    key=distributor(engine);
+                
+                    key=(rand() / (RAND_MAX / 5 + 1));
+                if (key==1||key==2||key==3||key==4){
+                    keyComboAnswer.push_back(key);
+                    //key=distributor(engine);
                 if(debug){
                     printf("Key: %d\n",key);
                 }
-                    if (key==1) {
-                        keyComboAnswer.push_back(1);
-                        sf2d_draw_texture(D0, posx, posy);
-                        sf2d_draw_texture(stop, 8, 8);
-                        svcSleepThread(500000000);
-                        sf2d_end_frame();
-                        sf2d_swapbuffers();
-                        sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
-                        sf2d_draw_texture(D1, posx, posy);
-                        sf2d_draw_texture(stop, 8, 8);
-                        svcSleepThread(1000000000);
-                    } else if (key==2){
-                        keyComboAnswer.push_back(2);
-                        sf2d_draw_texture(D0, posx, posy);
-                        sf2d_draw_texture(stop, 8, 8);
-                        svcSleepThread(500000000);
-                        sf2d_end_frame();
-                        sf2d_swapbuffers();
-                        sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
-                        sf2d_draw_texture(D2, posx, posy);
-                        sf2d_draw_texture(stop, 8, 8);
-                        svcSleepThread(1000000000);
-                    } else if (key==3){
-                        keyComboAnswer.push_back(3);
-                        sf2d_draw_texture(D0, posx, posy);
-                        sf2d_draw_texture(stop, 8, 8);
-                        svcSleepThread(500000000);
-                        sf2d_end_frame();
-                        sf2d_swapbuffers();
-                        sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
-                        sf2d_draw_texture(D3, posx, posy);
-                        sf2d_draw_texture(stop, 8, 8);
-                        svcSleepThread(1000000000);
-                    } else if (key==4){
-                        keyComboAnswer.push_back(4);
-                        sf2d_draw_texture(D0, posx, posy);
-                        sf2d_draw_texture(stop, 8, 8);
-                        svcSleepThread(500000000);
-                        sf2d_end_frame();
-                        sf2d_swapbuffers();
-                        sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
-                        sf2d_draw_texture(D4, posx, posy);
-                        sf2d_draw_texture(stop, 8, 8);
-                        svcSleepThread(1000000000);
-                    }
+                
+                
                     ran++;
                     redraw=true;
+                }
             }
         }
         else{
             display=false;
             if (redraw){
+                for (int u=0; u<keyComboAnswer.size(); u++) {
+                    sf2d_end_frame();
+                    sf2d_swapbuffers();
+                    sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
+                    sf2d_draw_texture(D0, posx, posy);
+                    sf2d_draw_texture(stop, 8, 8);
+                    svcSleepThread(500000000);
+                    sf2d_end_frame();
+                    sf2d_swapbuffers();
+                    sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
+                    if (keyComboAnswer.at(u)==1){
+                        sf2d_draw_texture(D1, posx, posy);
+                    }
+                    else if (keyComboAnswer.at(u)==2){
+                        sf2d_draw_texture(D2, posx, posy);
+                    }
+                    else if (keyComboAnswer.at(u)==3){
+                        sf2d_draw_texture(D3, posx, posy);
+                    }
+                    else if (keyComboAnswer.at(u)==4){
+                        sf2d_draw_texture(D4, posx, posy);
+                    }
+                    sf2d_draw_texture(stop, 8, 8);
+                    svcSleepThread(1000000000);
+                }
+//                if (key==1) {
+//                    keyComboAnswer.push_back(1);
+//                    sf2d_draw_texture(D0, posx, posy);
+//                    sf2d_draw_texture(stop, 8, 8);
+//                    svcSleepThread(500000000);
+//                    sf2d_end_frame();
+//                    sf2d_swapbuffers();
+//                    sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
+//                    sf2d_draw_texture(D1, posx, posy);
+//                    sf2d_draw_texture(stop, 8, 8);
+//                    svcSleepThread(1000000000);
+//                } else if (key==2){
+//                    keyComboAnswer.push_back(2);
+//                    sf2d_draw_texture(D0, posx, posy);
+//                    sf2d_draw_texture(stop, 8, 8);
+//                    svcSleepThread(500000000);
+//                    sf2d_end_frame();
+//                    sf2d_swapbuffers();
+//                    sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
+//                    sf2d_draw_texture(D2, posx, posy);
+//                    sf2d_draw_texture(stop, 8, 8);
+//                    svcSleepThread(1000000000);
+//                } else if (key==3){
+//                    keyComboAnswer.push_back(3);
+//                    sf2d_draw_texture(D0, posx, posy);
+//                    sf2d_draw_texture(stop, 8, 8);
+//                    svcSleepThread(500000000);
+//                    sf2d_end_frame();
+//                    sf2d_swapbuffers();
+//                    sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
+//                    sf2d_draw_texture(D3, posx, posy);
+//                    sf2d_draw_texture(stop, 8, 8);
+//                    svcSleepThread(1000000000);
+//                } else if (key==4){
+//                    keyComboAnswer.push_back(4);
+//                    sf2d_draw_texture(D0, posx, posy);
+//                    sf2d_draw_texture(stop, 8, 8);
+//                    svcSleepThread(500000000);
+//                    sf2d_end_frame();
+//                    sf2d_swapbuffers();
+//                    sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
+//                    sf2d_draw_texture(D4, posx, posy);
+//                    sf2d_draw_texture(stop, 8, 8);
+//                    svcSleepThread(1000000000);
+//                }
+                sf2d_end_frame();
+                sf2d_swapbuffers();
+                sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
                 sf2d_draw_texture(D0, posx, posy);
                 sf2d_draw_texture(stop, 8, 8);
                 svcSleepThread(500000000);
@@ -322,7 +360,10 @@ int main() {
                 sf2d_swapbuffers();
                 sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
                 sf2d_draw_texture(D5, posx, posy);
-                svcSleepThread(1000000000);
+                svcSleepThread(2000000000);
+//                sf2d_end_frame();
+//                sf2d_swapbuffers();
+//                sf2d_start_frame(GFX_BOTTOM, GFX_LEFT);
                 if(debug){
                 printf("incorrect\n");
                 for (int t=0; t<keyCombo.size(); t++) {

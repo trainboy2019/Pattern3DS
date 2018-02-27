@@ -1,4 +1,4 @@
-main.o: /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/source/main.cpp \
+main.o: /Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/source/main.cpp \
  /usr/local/devkitPro/libctru/include/3ds.h \
  /usr/local/devkitPro/libctru/include/3ds/types.h \
  /usr/local/devkitPro/libctru/include/3ds/result.h \
@@ -84,14 +84,14 @@ main.o: /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/source/main.cpp \
  /usr/local/devkitPro/libctru/include/c3d/renderbuffer.h \
  /usr/local/devkitPro/libctru/include/c3d/renderqueue.h \
  /usr/local/devkitPro/libctru/include/sfil.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D0_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D1_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D2_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D3_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D4_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D5_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/start_png.h \
- /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/stop_png.h
+ /Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D0_png.h \
+ /Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D1_png.h \
+ /Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D2_png.h \
+ /Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D3_png.h \
+ /Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D4_png.h \
+ /Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D5_png.h \
+ /Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/start_png.h \
+ /Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/stop_png.h
 
 /usr/local/devkitPro/libctru/include/3ds.h:
 
@@ -263,18 +263,18 @@ main.o: /Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/source/main.cpp \
 
 /usr/local/devkitPro/libctru/include/sfil.h:
 
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D0_png.h:
+/Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D0_png.h:
 
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D1_png.h:
+/Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D1_png.h:
 
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D2_png.h:
+/Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D2_png.h:
 
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D3_png.h:
+/Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D3_png.h:
 
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D4_png.h:
+/Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D4_png.h:
 
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/D5_png.h:
+/Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/D5_png.h:
 
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/start_png.h:
+/Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/start_png.h:
 
-/Users/Ike1/Desktop/3DSBREWMAKER/Pattern3DS/build/stop_png.h:
+/Users/Ike1/Desktop/3DSBREWMAKER/Puzzle3DS/build/stop_png.h:
